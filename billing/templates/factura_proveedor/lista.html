@@ -1,0 +1,24 @@
+<h1>Lista de facturas</h1>
+<a href="{% url 'crear_factura' %}">Crear nueva factura</a>
+<table>
+    <tr>
+        <th>Código</th>
+        <th>Descripción</th>
+        <th>Correo</th>
+        <th>Acciones</th>
+    </tr>
+    {% for f in facturas %}
+    <tr>
+        <td>{{ f.codigo }}</td>
+        <td>{{ f.numero}}</td>
+        <td>{{ f.total }}</td>
+        <td>{{ f.fecha }}</td>
+        <td>{{ f.total }}</td>
+        <td>{{ f.proveedor }}</td>
+        <td>
+            <a href="{% url 'editar_factura' p.codigo %}">Editar</a>
+            <a href="{% url 'eliminar_factura' p.codigo %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

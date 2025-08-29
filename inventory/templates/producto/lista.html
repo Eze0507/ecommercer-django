@@ -1,0 +1,35 @@
+<h1>Lista de productos</h1>
+<a href="{% url 'crear_producto' %}">crear producto</a>
+<table>
+    <tr>
+        <th>imagen</th>
+        <th>codigo</th>
+        <th>nombre</th>
+        <th>descripcion</th>
+        <th>existencia</th>
+        <th>unidad</th>
+        <th>costo promedio</th>
+        <th>precio compra</th>
+        <th>precio compra anterior</th>
+        <th>precio venta</th>
+        <th>Acciones</th>
+    </tr>
+    {% for p in productos %}
+    <tr>
+        <td><img src="{{ p.imagen.url }}" alt="{{ p.nombre }}" width="55"></td>
+        <td>{{ p.codigo }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.descripcion }}</td>
+        <td>{{ p.existencia }}</td>
+        <td>{{ p.unidad }}</td>
+        <td>{{ p.costo_promedio }}</td>
+        <td>{{ p.precio_compra }}</td>
+        <td>{{ p.precio_compra_anterior }}</td>
+        <td>{{ p.precio_venta }}</td>
+        <td>
+            <a href="{% url 'editar_producto' p.codigo %}">editar</a>
+            <a href="{% url 'eliminar_producto' p.codigo %}">eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+<table>

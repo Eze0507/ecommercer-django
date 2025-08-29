@@ -1,0 +1,27 @@
+<h1>Lista de Proveedores</h1>
+<a href="{% url 'crear_proveedor' %}">Crear nuevo proveedor</a>
+<table>
+    <tr>
+        <th>Código</th>
+        <th>Descripción</th>
+        <th>Correo</th>
+        <th>direccion</th>
+        <th>contacto</th>
+        <th>telefono</th>
+        <th>Acciones</th>
+    </tr>
+    {% for p in proveedores %}
+    <tr>
+        <td>{{ p.codigo }}</td>
+        <td>{{ p.descripcion }}</td>
+        <td>{{ p.correo }}</td>
+        <td>{{ p.direccion }}</td>
+        <td>{{ p.contacto }}</td>
+        <td>{{ p.telefono }}</td>
+        <td>
+            <a href="{% url 'editar_proveedor' p.codigo %}">Editar</a>
+            <a href="{% url 'eliminar_proveedor' p.codigo %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>

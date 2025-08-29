@@ -1,0 +1,25 @@
+<h1>Lista de inventario</h1>
+<a href="{% url 'crear_inventario' %}">crear inventario</a>
+<table>
+    <tr>
+        <th>codigo</th>
+        <th>usuario</th>
+        <th>fecha</th>
+        <th>descripcion</th>
+        <th>tipo de movimineto</th>
+        <th>Accion</th>
+    </tr>
+    {% for iv in inventarios %}
+    <tr>
+        <th>{{ iv.codigo }}</th>
+        <th>{{ iv.usuario }}</th>
+        <th>{{ iv.fecha|date:"d/m/Y" }}</th>
+        <th>{{ iv.descripcion }}</th>
+        <th>{{ iv.tipo_movimiento }}</th>
+        <th>
+            <a href="{% url 'editar_inventario' iv.codigo %}">Editar</a>
+            <a href="{% url 'eliminar_inventario' iv.codigo %}">Eliminar</a>
+        </th>
+    </tr>
+    {% endfor %}
+</table>

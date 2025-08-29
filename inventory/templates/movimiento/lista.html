@@ -1,0 +1,19 @@
+<h1>Lista de tipos de movimientos</h1>
+<a href="{% url 'crear_movimiento' %}">crea tipo de movimiento</a>
+<table>
+    <tr>
+        <th>Codigo</th>
+        <th>Descripcion</th>
+        <th>Accion</th>
+    </tr>
+    {% for m in movimientos %}
+    <tr>
+        <th>{{ m.codigo }}</th>
+        <th>{{ m.descripcion }}</th>
+        <th>
+            <a href="{% url 'editar_movimiento' m.codigo %}">Editar</a>
+            <a href="{% url 'eliminar_movimiento' m.codigo %}">Eliminar</a>
+        </th>
+    </tr>
+    {% endfor %}
+</table>

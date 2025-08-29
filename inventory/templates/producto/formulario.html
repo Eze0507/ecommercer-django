@@ -1,0 +1,7 @@
+<h1>{{ form.instance.codigo|yesno:"Editar,Crear" }} producto</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+<a href="{% url 'lista_producto' %}">volver a la lista</a>

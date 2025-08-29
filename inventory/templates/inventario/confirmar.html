@@ -1,0 +1,7 @@
+<h1>Eliminar Inventario</h1>
+<p>¿esta seguro que desea eliminar a {{ inventario.codigo }}?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" >si, eliminar</button>
+</form>
+<a href="{% url 'lista_inventario' %}">cancelar</a>

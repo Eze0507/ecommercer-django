@@ -1,0 +1,7 @@
+<h1>{{ form.instance.codigo|yesno:"Editar,Crear" }} tipo de movimiento</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">guardar</button>
+</form>
+<a href="{% url 'lista_movimiento' %}">volver a la lista</a>
